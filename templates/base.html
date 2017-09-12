@@ -1,0 +1,55 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>校科协作业平台</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" type="text/javascript" href="/static/js/bootstrap.js">
+    <link rel="stylesheet" type="text/css" href="/static/css/lr.css">
+    {% block extra_css %}
+    {% endblock %}
+</head>
+<body>
+{% block header %}
+    {% include 'header.html' %}
+{% endblock %}
+<div class="container main-content" style="padding-top: 70px">
+    {% block content %}
+    {% endblock %}
+</div>
+<script src="/static/js/jquery-3.1.1.min.js"></script>
+<script>
+    $.ajaxSetup({
+        data: {csrfmiddlewaretoken: '{{ csrf_token }}'}
+    });
+</script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/masonry.pkgd.min.js"></script>
+<script src="/static/js/jquery.gradientify.min.js"></script>
+
+<!-- 登录注册控件js -->
+<script src="/static/js/lr.js"></script>
+
+<script>
+    $(".logout-button").click(function () {
+        $.ajax({
+            type: "POST",
+            url: "{% url 'logout' %}",
+            success: function (data) {
+                location.replace("{% url 'index' %}");
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert(XMLHttpRequest.responseText);
+            }
+        });
+        return false;
+    });
+</script>
+{% block extra_js %}
+{% endblock %}
+</body>
+</html>

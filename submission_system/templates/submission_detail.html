@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load custom_markdown %}
+{% block extra_css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap-markdown.min.css' %}">
+    <link href="{% static 'css/default.css' %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+    <div class="container">
+
+        <h2>{{ submission.homework.name }}</h2>
+        <hr>
+        <h4>题目内容：</h4>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <p>{{ submission.homework.content|custom_markdown }}</p>
+            </div>
+        </div>
+        <hr>
+        <h4>{% if user.is_superuser %}{{ submission.creator.username }}的回答：{% else %}你的回答：{% endif %}</h4>
+        <div class="panel panel-default">
+            {% if submission.content %}
+                <div class="panel-body">
+                    <p>{{ submission.content|custom_markdown }}</p>
+                </div>
+            {% endif %}
+            {% if submission.code %}
+                <div class="panel-body">
+
+                    <pre><code>{{ submission.code }}</code></pre>
+                </div>
+            {% endif %}
+            {% if submission.picture %}
+                <img src="{{ submission.picture.url }}" alt="picture open field" class="img-responsive center-block">"
+            {% endif %}
+        </div>
+        <hr>
+        {% for comment in comments %}
+            <h4>{% if user.is_superuser %}{{ comment.creator.username }}这样讲：{% else %}{{ comment.creator.username }}对你的回答有话要说：{% endif %}</h4>
+            <div class="panel panel-default">
+                {% if comment.content %}
+                    <div class="panel-body">
+                        <p>{{ comment.content|custom_markdown }}</p>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+        {% if user.is_superuser %}
+        <hr>
+        <h2>添加点评</h2>
+        <hr>
+        <form method="post" id="main_form">
+            {% csrf_token %}
+            <textarea id="content" name="content" data-provide="markdown" rows="6" cols="100"></textarea>
+            <hr/>
+            <button class="btn btn-success" onclick="submit()">保存</button>
+        </form>
+        {% endif %}
+        <p></p>
+    </div>
+{% endblock %}
+{% block extra_js %}
+    <script src="{% static 'js/highlight.pack.js' %}"></script>
+    <script src="{% static 'js/bootstrap-table.js' %}"></script>
+    <script src="{% static 'js/bootstrap-table-zh-CN.js' %}"></script>
+    <script>hljs.initHighlightingOnLoad();
+    $(window).on('load', function () {
+
+        $(".panel-body img").addClass("img-responsive center-block");
+
+    })
+    </script>
+    <script src="{% static 'js/bootstrap-markdown.js' %}"></script>
+    <script src="{% static 'js/bootstrap-markdown.zh.js' %}"></script>
+    <script src="{% static 'js/markdown.js' %}"></script>
+    <script src="{% static 'js/to-markdown.js' %}"></script>
+    <script src="{% static 'js/highlight.pack.js' %}"></script>
+    <script src="{% static 'js/tabIndent.js' %}"></script>
+    <script>
+        function submit() {
+            $("#main_form").submit()
+        }
+        (function ($) {
+            $.fn.markdown.messages.zh = {
+                'Bold': "粗体",
+                'Italic': "斜体",
+                'Heading': "标题",
+                'URL/Link': "链接",
+                'Image': "图片",
+                'List': "列表",
+                'Unordered List': "无序列表",
+                'Ordered List': "有序列表",
+                'Code': "代码",
+                'Quote': "引用",
+                'Preview': "预览",
+                'strong text': "粗体",
+                'emphasized text': "强调",
+                'heading text': "标题",
+                'enter link description here': "输入链接说明",
+                'Insert Hyperlink': "URL地址",
+                'enter image description here': "输入图片说明",
+                'Insert Image Hyperlink': "图片URL地址",
+                'enter image title here': "在这里输入图片标题",
+                'list text here': "这里是列表文本",
+                'code text here': "这里输入代码",
+                'quote here': "这里输入引用文本"
+            };
+
+        }(jQuery));
+        $("#content").markdown({
+            language: 'zh'
+        });
+        hljs.initHighlightingOnLoad();
+        {#        实现textarea的tab键缩进功能#}
+        document.body.enableTextareaDevTab();
+    </script>
+{% endblock %}
