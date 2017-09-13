@@ -17,6 +17,8 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from submission_system.views import *
 
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'index/', index_view, name='index'),
@@ -35,3 +37,5 @@ urlpatterns = [
     url(r'get_my_submissions', get_my_submissions, name="get_my_submissions"),
     url(r'^$', index_view)
 ]
+
+urlpatterns += staticfiles_urlpatterns()
