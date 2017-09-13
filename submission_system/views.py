@@ -120,6 +120,7 @@ def get_my_submissions(request):
     json_data['rows'] = recodes
     return JsonResponse(json_data)
 
-
 def list_my_submissions(request):
-    return render(request, "list_my_submission.html")
+    if request.user:
+        return render(request, "list_my_submission.html")
+    raise Http404

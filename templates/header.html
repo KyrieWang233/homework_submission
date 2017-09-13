@@ -57,7 +57,9 @@
                 <!-- 多媒体部 -->
                 <li><a href="{% url 'list_homework' 'multi_media' %}">多媒体部</a></li>
                 <!-- 多媒体部 -->
+                {% if user.is_authenticated %}
                 <li><a href="{% url 'list_my_submissions' %}">我的提交记录</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>
