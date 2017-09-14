@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import permission_required, login_required
 from django.http import Http404
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseNotFound
 from django.shortcuts import render, redirect
 
 # Create your views here.
@@ -121,6 +121,6 @@ def get_my_submissions(request):
     return JsonResponse(json_data)
 
 def list_my_submissions(request):
-    if request.user:
+    if request.user.is_authenticated:
         return render(request, "list_my_submission.html")
-    raise Http404
+    return HttpResponseNotFound('<h1>Page not found</h1>')

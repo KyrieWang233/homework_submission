@@ -5,13 +5,16 @@
 /* fluid 5 columns */
 .grid-sizer,
 .grid-item { 
-    width: 22%;
-    /*height: 300px;*/
-	  margin-left: 30px;
-    margin-bottom: 20px;
-    background-color: rgba(85, 85, 85, 0.25);
-    border-radius: 15px;
-    position: relative;
+  width: 22%;
+  margin-left: 30px;
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 0.5em;
+  position: relative;
+  -webkit-box-shadow : 0 0.1em 0.2em 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -moz-box-shadow    : 0 0.1em 0.2em 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow         : 0 0.1em 0.2em 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  /*box-shadow:0 0 30px 10px rgba(255,255,255,.7) inset;*/
 }
 /* 2 columns */
 .grid-item--height2 { position:relative;/*height: 250px; */}
@@ -20,7 +23,9 @@
 
 .mini-img{
 	text-align: center;
-	max-height: 70%;
+	/*height: 70%;*/
+  height: 7em;
+  position: relative;
 }
 
 img{
@@ -33,24 +38,68 @@ img{
 .mini-title{
 	text-align: center;
   padding-bottom: 0px;
+  /*height: 30%;*/
+  height: 3em;
+  position: relative;
+  overflow: hidden;
   /*word-wrap: break-word；*/
 }
 
 .mini-title a{
 	color:#333;
   max-width: 100%;
-	font-family: Woodblock;
+  font-size: 1.5pt;
+  font-weight: bold; 
+  font-family: "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  outline: none;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration:none;
+  /*position: relative;*/
 }
 
+.mini-title a:hover,
+.mini-title a:focus
+{
+  text-decoration:none;
+  outline: none;
+}
 
-#particles {
+a.demo {
+  text-transform: uppercase;
+  /*font-size: 1pt;*/
+  color: white;
+  text-decoration: none;
+  position: relative;
+  display: block;
+}
+
+/* linksix */
+.link-6 a.demo:hover {
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  transform: scale(1.05);  
+}
+
+.link-6 a {
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.bg-blur {
+  float: left;
   width: 100%;
-  min-height: 100%;
-  height:auto;
-  top: 0;
-  /*bottom: 0px;*/
-  overflow: hidden;
-  /*position: absolute;*/
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  -webkit-filter: blur(15px);
+  -moz-filter: blur(15px);
+  -o-filter: blur(15px);
+  -ms-filter: blur(15px);
+  filter: blur(15px);
 }
 
 #intro {
@@ -58,10 +107,11 @@ img{
   height: 100%;
   top: 0px;
   margin-top: 0px; 
-  position: absolute;
+  position: relative;
   padding-top: 0px;
 }
-
+#goTop{position:absolute;display:none;width:50px;height:48px;background:#fff url(http://files.jb51.net/file_images/article/201601/gotop.png) no-repeat 16px 15px;border:solid 1px #f9f9f8;border-radius:6px;box-shadow:0 1px 1px rgba(0, 0, 0, 0.2);cursor:pointer}
+#goTop:hover{height:50px;background-position:16px 16px;box-shadow:0 1px 1px rgba(0, 0, 0, 0.3)}
 
 /*
 @media (min-width: 1200px){
