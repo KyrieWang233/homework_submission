@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <title>校科协作业平台</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;">
     <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
-    <link rel="stylesheet" type="text/javascript" href="/static/js/bootstrap.js">
     <link rel="stylesheet" type="text/css" href="/static/css/lr.css">
-    <!-- <link rel="stylesheet" type="text/css" href="/static/css/component.css"> -->
     {% block extra_css %}
     {% endblock %}
 </head>
@@ -27,16 +24,14 @@
         <div id="goTop" class="goTop"></div>
     </div>
     <script src="/static/js/jquery-3.1.1.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/masonry.pkgd.min.js"></script>
+    <!-- <script src="/static/js/jquery.gradientify.min.js"></script> -->
     <script>
         $.ajaxSetup({
             data: {csrfmiddlewaretoken: '{{ csrf_token }}'}
         });
     </script>
-    <script src="/static/js/bootstrap.min.js"></script>
-    <script src="/static/js/masonry.pkgd.min.js"></script>
-    <!-- <script src="/static/js/jquery.gradientify.min.js"></script> -->
-    <script src="/static/js/jquery.toTop.min.js"></script>
-
     <!-- 背景滚动 -->
     <script src="/static/js/autoBackgroundScroll.js"></script>
     <script>

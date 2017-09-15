@@ -34,6 +34,7 @@ function changeIntrotop(){
   intro.style.paddingTop = introtop; 
 }
 
+// 扁平化配色
 function changedivcolor(){
   // var colorPanel = ["#1abc9c","#2ecc71","#3498db","#9b59b6","#34495e","#16a085","#27ae60","#2980b9","#8e44ad","#2c3e50","#f1c40f","#e67e22","#e74c3c","#f39c12","#d35400","#c0392b","#7f8c8d"];
   var colorPanel = ["#2C82C9","#2CC990","#EEE657","#FCB941","#FC6042","#3E4651","#00B5B5","#43353D","#D98B3A","#E01931","#A5F2F1","#ABA5F2","#E26E67","#744B29","#BADA55","#FDB86B","#92F22A","#7BB0A6","#9E8E5A"];
@@ -49,7 +50,7 @@ window.onload = function(){
   changeIntrotop();
   changedivcolor();
 };
-// 随窗口改变改变主体块的上边距和画布
+// 随窗口改变改变主体块的上边距
 $(window).resize(function() {
   changeIntrotop();
 });
