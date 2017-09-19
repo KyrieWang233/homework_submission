@@ -51,10 +51,11 @@ class HomeworkAnswer(models.Model):
         verbose_name = "提交的作业"
         verbose_name_plural = "提交的作业"
 
+
 class Comment(models.Model):
-    comment = models.ForeignKey(HomeworkAnswer,verbose_name = '所属答案')
+    comment = models.ForeignKey(HomeworkAnswer, verbose_name='所属答案')
     content = models.TextField(verbose_name='评论详细', null=True, blank=True)
-    creator = models.ForeignKey(MyUser,verbose_name='讲师', null=True,blank=True)
+    creator = models.ForeignKey(MyUser, verbose_name='讲师', null=True, blank=True)
 
     def __str__(self):
         return self.creator.username + '提交的' + self.comment.homework.name + '评论'

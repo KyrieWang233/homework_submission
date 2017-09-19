@@ -96,3 +96,5 @@ ENV/
 
 .idea/workspace.xml
 .idea
+*.sqlite3
+
