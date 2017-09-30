@@ -16,6 +16,9 @@
                 <p>{{ homework.content|custom_markdown }}</p>
             </div>
         </div>
+        {% if user.is_superuser %}
+            <a class="btn-primary btn-lg btn " href="{% url 'edit_homework' homework.pk %}">编辑作业</a>
+        {% endif %}
         <hr>
         <h4>完成情况</h4>
         <table id="table"
