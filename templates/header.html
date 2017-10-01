@@ -15,23 +15,6 @@
             <!-- 大标题 -->
         </div>
 
-        <!--注册登录 -->
-        <div >
-            {% if user.is_authenticated %}
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" role="button"><span></span> {{ user.username }}</a></li>
-                    <li><a href="#" role="button" data-toggle="modal" class="logout-button"><span
-                            class="glyphicon glyphicon-log-in"></span> 注销</a></li>
-                </ul>
-            {% else %}
-                <ul class="nav navbar-nav navbar-right">
-
-                    <li ><a href="#" role="button" data-toggle="modal" data-target="#login-modal"><span
-                            class="glyphicon glyphicon-log-in"></span> 登录</a></li>
-                </ul>
-            {% endif %}
-        </div>
-        <!--注册登录 -->
 
         <div class="collapse navbar-collapse" id="navbar-collapse" id="navbar">
             <ul class="nav navbar-nav">
@@ -76,6 +59,23 @@
                 <li><a href="{% url 'list_my_submissions' %}">我的提交记录</a></li>
                 {% endif %}
             </ul>
+            <!--注册登录 -->
+        <div >
+            {% if user.is_authenticated %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" role="button"><span></span> {{ user.username }}</a></li>
+                    <li><a href="#" role="button" data-toggle="modal" class="logout-button"><span
+                            class="glyphicon glyphicon-log-in"></span> 注销</a></li>
+                </ul>
+            {% else %}
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li ><a href="#" role="button" data-toggle="modal" data-target="#login-modal"><span
+                            class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+                </ul>
+            {% endif %}
+        </div>
+        <!--注册登录 -->
         </div>
     </div>
 </nav>

@@ -1,20 +1,20 @@
 // 背景自动滚动
-$('.bg').autoBackgroundScroll({
-  speed: 0.3,
-  direction1: 'bottom',
-  direction2: 'right',
-  imageWidth: 2000,
-  imageHeight: 2000
-});
+// $('.bg').autoBackgroundScroll({
+//   speed: 0.3,
+//   direction1: 'bottom',
+//   direction2: 'right',
+//   imageWidth: 2000,
+//   imageHeight: 2000
+// });
 
 // 背景渐变颜色控制
-//     $('body').gradientify({
-//     gradients: [
-//         { start: [49,76,172], stop: [242,159,191] },
-//         { start: [255,103,69], stop: [240,154,241] },
-//         { start: [33,229,241], stop: [235,236,117] }
-//     ]
-// });
+    $('body').gradientify({
+    gradients: [
+        { start: [234,239,161], stop: [69,201,141]},
+        { start: [122,248,247], stop: [197,223,116] },
+        { start: [255,255,255], stop: [153,204,102]}
+    ]
+});
 
 //瀑布流布局控制
 $('.grid').masonry({

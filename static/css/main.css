@@ -5,7 +5,6 @@
 /* fluid 5 columns */
 .grid-sizer,
 .grid-item { 
-  width: 22%;
   margin-left: 30px;
   margin-bottom: 20px;
   background-color: rgba(255, 255, 255, 0.25);
@@ -14,12 +13,14 @@
   -webkit-box-shadow : 0 0.1em 0.2em 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   -moz-box-shadow    : 0 0.1em 0.2em 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   box-shadow         : 0 0.1em 0.2em 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  /*box-shadow:0 0 30px 10px rgba(255,255,255,.7) inset;*/
 }
 /* 2 columns */
 .grid-item--height2 { position:relative;/*height: 250px; */}
 .grid-item--height3 { position:relative;/*height: 320px;*/ }
 
+/*.grid-item {
+  width:22%;
+}*/
 
 .mini-img{
 	text-align: center;
@@ -110,17 +111,31 @@ a.demo {
   position: relative;
   padding-top: 0px;
 }
-#goTop{position:absolute;display:none;width:50px;height:48px;background:#fff url(http://files.jb51.net/file_images/article/201601/gotop.png) no-repeat 16px 15px;border:solid 1px #f9f9f8;border-radius:6px;box-shadow:0 1px 1px rgba(0, 0, 0, 0.2);cursor:pointer}
+#goTop{position:absolute;display:none;width:50px;height:48px;background:#fff url(/static/img/gotop.png) no-repeat 16px 15px;border:solid 1px #f9f9f8;border-radius:6px;box-shadow:0 1px 1px rgba(0, 0, 0, 0.2);cursor:pointer}
 #goTop:hover{height:50px;background-position:16px 16px;box-shadow:0 1px 1px rgba(0, 0, 0, 0.3)}
 
-/*
-@media (min-width: 1200px){
-  #intro{
-    margin-top:  -150%;
+
+@media screen and (min-width: 1048px){
+  .grid-sizer, 
+  .grid-item{
+    width:22%;
   }
 }
-@media (min-width: 1200px){
-  #intro{
-    margin-top:  -150%
+@media screen and (min-width: 950px) and (max-width: 1048px){
+  .grid-sizer, 
+  .grid-item{
+    width: 30%;
   }
-}*/
+}
+@media screen and (min-width: 352px) and (max-width:950px){
+  .grid-sizer, 
+  .grid-item{
+    width: 40%;
+  }
+}
+@media screen and (max-width:352px){
+  .grid-sizer, 
+  .grid-item{
+    width: 80%;
+  }
+}

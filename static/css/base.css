@@ -6,12 +6,6 @@ body {
   overflow : hidden;
 }
 
-
-.bg{
-  background-image: url(../img/background.jpg);
-  background-position: 0px 0px;
-}
-
 .wrap {
     min-height: 100%;
     height: auto;
