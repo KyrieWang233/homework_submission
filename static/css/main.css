@@ -43,13 +43,13 @@ img{
   height: 3em;
   position: relative;
   overflow: hidden;
-  /*word-wrap: break-word；*/
+  word-wrap: break-word；
 }
 
 .mini-title a{
 	color:#333;
   max-width: 100%;
-  font-size: 1.5pt;
+  font-size: 0.85em;
   font-weight: bold; 
   font-family: "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   outline: none;
