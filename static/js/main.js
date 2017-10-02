@@ -7,15 +7,6 @@
 //   imageHeight: 2000
 // });
 
-// 背景渐变颜色控制
-    $('body').gradientify({
-    gradients: [
-        { start: [234,239,161], stop: [69,201,141]},
-        { start: [122,248,247], stop: [197,223,116] },
-        { start: [255,255,255], stop: [153,204,102]}
-    ]
-});
-
 //瀑布流布局控制
 $('.grid').masonry({
   // set itemSelector so .grid-sizer is not used in layout
@@ -24,7 +15,6 @@ $('.grid').masonry({
   columnWidth: '.grid-sizer',
   percentPosition: true
 });
-
 
 // 改变主体块的上边距
 function changeIntrotop(){
@@ -45,10 +35,17 @@ function changedivcolor(){
     allGrid[i].style.opacity = 0.8;
   }
 }
-
 window.onload = function(){
   changeIntrotop();
   changedivcolor();
+  // 背景渐变颜色控制
+$('body').gradientify({
+    gradients: [
+        { start: [234,239,161], stop: [69,201,141]},
+        { start: [122,248,247], stop: [197,223,116] },
+        { start: [255,255,255], stop: [153,204,102]}
+    ]
+});
 };
 // 随窗口改变改变主体块的上边距
 $(window).resize(function() {
