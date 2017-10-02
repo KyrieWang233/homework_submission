@@ -35,6 +35,7 @@ urlpatterns = [
     url(r'submission-detail/(?P<submission_id>\d+)', submission_detail, name='submission_detail'),
     url(r'list_my_submissions', list_my_submissions, name='list_my_submissions'),
     url(r'get_my_submissions', get_my_submissions, name="get_my_submissions"),
+    url(r'edit-homework/(?P<homework_id>\d+)/', edit_homework, name='edit_homework'),
     url(r'^$', index_view)
 ]
 

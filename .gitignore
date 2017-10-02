@@ -95,3 +95,6 @@ ENV/
 .ropeproject
 
 .idea/workspace.xml
+.idea
+*.sqlite3
+

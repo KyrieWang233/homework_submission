@@ -55,6 +55,16 @@ def homework_detail(request, homework_id):
     homework = Homework.objects.get(pk=homework_id)
     return render(request, 'homework_detail.html', context={'homework': homework, })
 
+def edit_homework(request, homework_id):
+    homework = Homework.objects.get(pk=homework_id)
+    if request.method == 'POST':
+        homework.name=request.POST['name']
+        homework.content=request.POST['content']
+        homework.save()
+        return redirect(reverse('homework_detail',args=(homework.pk,)))
+    else:
+        return render(request,'edit_homework.html', context={'homework':homework,})
+
 
 @permission_required('submission_system.add_homework')
 def get_finished(request, homework_id):
