@@ -2,12 +2,10 @@
 	padding: 0 20px 20px 20px;
 }
 
-/* fluid 5 columns */
-.grid-sizer,
+/*.grid-sizer,*/
 .grid-item { 
-	margin-left: 25px;
-	margin-bottom: 20px;
-	background-color: rgba(255, 255, 255, 0.25);
+	margin: 0px 15px 20px 5px;
+	background-color: rgba(255,255,255,0.8);
 	border-radius: 0.5em;
 	position: relative;
 	-webkit-box-shadow : 0 0.1em 0.2em 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
@@ -15,10 +13,8 @@
 	box-shadow         : 0 0.1em 0.2em 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 	-webkit-transition: all 0.1s linear;
 	transition: all 0.1s linear;
+	float:left;
 }
-/* 2 columns */
-.grid-item--height2 { position:relative;/*height: 250px; */}
-.grid-item--height3 { position:relative;/*height: 320px;*/ }
 
 .grid-item:hover {
 	-webkit-transform: scale(1.05);
@@ -27,7 +23,6 @@
 	-o-transform: scale(1.05);
 	transform: scale(1.05);
 	cursor:pointer; 
-	color:#fff;
 }
 
 .mini-img{
@@ -86,27 +81,37 @@ img{
 #goTop:hover{height:50px;background-position:16px 16px;box-shadow:0 1px 1px rgba(0, 0, 0, 0.3)}
 
 
-@media screen and (min-width: 1048px){
+@media screen and (min-width: 1376px) {
+	.grid-sizer, 
+	.grid-item{
+		width:18%;
+	}
+}
+@media screen and (min-width: 1048px) and (max-width: 1376px){
 	.grid-sizer, 
 	.grid-item{
 		width:22%;
 	}
 }
-@media screen and (min-width: 950px) and (max-width: 1048px){
+@media screen and (min-width: 780px) and (max-width: 1048px){
 	.grid-sizer, 
 	.grid-item{
 		width: 30%;
 	}
 }
-@media screen and (min-width: 352px) and (max-width:950px){
+@media screen and (min-width: 352px) and (max-width:780px){
 	.grid-sizer, 
 	.grid-item{
-		width: 40%;
+		width: 43%;
 	}
 }
 @media screen and (max-width:352px){
 	.grid-sizer, 
 	.grid-item{
-		width: 80%;
+		width: 100%;
 	}
+}
+
+body{
+	background-image: url(../img/background.jpg);
 }

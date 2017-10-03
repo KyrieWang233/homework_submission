@@ -1,25 +1,7 @@
-// 背景自动滚动
-// $('.bg').autoBackgroundScroll({
-//   speed: 0.3,
-//   direction1: 'bottom',
-//   direction2: 'right',
-//   imageWidth: 2000,
-//   imageHeight: 2000
-// });
-
-//瀑布流布局控制
-$('.grid').masonry({
-  // set itemSelector so .grid-sizer is not used in layout
-  itemSelector: '.grid-item',
-  // use element for option
-  columnWidth: '.grid-sizer',
-  percentPosition: true
-});
-
 // 改变主体块的上边距
 function changeIntrotop(){
-  navheight = $("nav").height();
-  introtop = navheight + 25 +'px';
+  var nav = document.getElementsByTagName('nav')[0];nav.clientHeight;
+  introtop = nav.clientHeight + 25 +'px';
   var intro = document.getElementById('intro');
   intro.style.paddingTop = introtop; 
 }
@@ -35,18 +17,28 @@ function changedivcolor(){
     allGrid[i].style.opacity = 0.8;
   }
 }
-window.onload = function(){
-  changeIntrotop();
-  changedivcolor();
-  // 背景渐变颜色控制
-$('body').gradientify({
-    gradients: [
-        { start: [234,239,161], stop: [69,201,141]},
-        { start: [122,248,247], stop: [197,223,116] },
-        { start: [255,255,255], stop: [153,204,102]}
-    ]
+changeIntrotop();
+changedivcolor();
+// window.onload = function(){
+//   changeIntrotop();
+//   changedivcolor();
+//   // 背景渐变颜色控制
+//   // $('body').gradientify({
+//   //   gradients: [
+//   //   { start: [255,255,255], stop: [255,255,255]},
+//   //   { start: [184,251,254], stop: [181,253,223]},
+//   //   { start: [254,229,254], stop: [217,255,255]}
+//   //   ]
+//   // });
+// };
+
+$('body').autoBackgroundScroll({
+  speed: 0.1,
+  direction1: 'bottom',
+  direction2: 'right',
+  imageWidth: 2000,
+  imageHeight: 2000
 });
-};
 // 随窗口改变改变主体块的上边距
 $(window).resize(function() {
   changeIntrotop();

@@ -6,9 +6,8 @@
     <div class="grid" id="main-grid">
         <div class="grid-sizer"></div>
         {% for work in works %}
-            <div class="grid-item {% if forloop.first %}{% else %}{% ifequal work.case 0 %}grid-item--height3
-            {% endifequal %}{% ifequal work.case 1 %}grid-item--height2{% endifequal %}{% endif %}
-            " onClick="window.location.href='{% if user.is_superuser %}{% url 'homework_detail' work.pk %}{% elif user.is_authenticated %}{% url 'add_submission' work.pk %}{% else %}#{% endif %}'" {% if not user.is_authenticated %} data-toggle="modal" data-target="#login-modal"{% endif %}" >
+            <div class="grid-item" onClick="window.open('{% if user.is_superuser %}{% url 'homework_detail' work.pk %}{% elif user.is_authenticated %}{% url 'add_submission' work.pk %}{% else %}#{% endif %}','_self')"
+            {% if not user.is_authenticated %} data-toggle="modal" data-target="#login-modal"{% endif %}" >
                 <div class="mini-img">
                     <img src="/static/img/{{ work.courser.name_en }}.png">
                 </div>
@@ -23,5 +22,6 @@
     </div>
 {% endblock %}
 {% block extra_js %}
-    
+        <!-- 主页面js -->
+    <script src="/static/js/main.js"></script>
 {% endblock %}
