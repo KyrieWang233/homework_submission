@@ -1,6 +1,14 @@
+$('body').autoBackgroundScroll({
+  speed: 0.1,
+  direction1: 'bottom',
+  direction2: 'right',
+  imageWidth: 2000,
+  imageHeight: 2000
+});
+
 // 改变主体块的上边距
 function changeIntrotop(){
-  var nav = document.getElementsByTagName('nav')[0];nav.clientHeight;
+  var nav = document.getElementsByTagName('nav')[0];
   introtop = nav.clientHeight + 25 +'px';
   var intro = document.getElementById('intro');
   intro.style.paddingTop = introtop; 
@@ -32,13 +40,7 @@ changedivcolor();
 //   // });
 // };
 
-$('body').autoBackgroundScroll({
-  speed: 0.1,
-  direction1: 'bottom',
-  direction2: 'right',
-  imageWidth: 2000,
-  imageHeight: 2000
-});
+
 // 随窗口改变改变主体块的上边距
 $(window).resize(function() {
   changeIntrotop();
