@@ -84,8 +84,6 @@ def get_finished(request, homework_id):
 def add_submission(request, homework_id):
     if request.method == 'POST':
         file = request.FILES.get('picture')
-        if file:
-            file.name = 'ppp'
         submission = HomeworkAnswer(code=request.POST['code'], content=request.POST['content'],
                                     homework=Homework.objects.get(pk=homework_id), picture=file)
         submission.save()

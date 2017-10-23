@@ -31,7 +31,10 @@
                 </div>
             {% endif %}
             {% if submission.picture %}
-                <img src="{{ submission.picture.url }}" alt="picture open field" class="img-responsive center-block">"
+                <img src="{{ submission.picture.url }}" alt="picture open field" class="img-responsive center-block">
+                <a href="{{ submission.picture.url }}" alt="picture open field" class="img-responsive center-block">
+                    <button>下载文件</button>
+                </a>
             {% endif %}
         </div>
         <hr>

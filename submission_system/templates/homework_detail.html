@@ -16,9 +16,7 @@
                 <p>{{ homework.content|custom_markdown }}</p>
             </div>
         </div>
-        {% if user.is_superuser %}
-            <a class="btn-primary btn-lg btn " href="{% url 'edit_homework' homework.pk %}">编辑作业</a>
-        {% endif %}
+        <a class="btn-primary btn-lg btn " href="{% url 'edit_homework' homework.pk %}">编辑作业</a>
         <hr>
         <h4>完成情况</h4>
         <table id="table"
@@ -65,7 +63,11 @@ $(window).on('load', function () {
                 });
             });
         </script>
-    <script src="//cdn.bootcss.com/bootstrap-table/1.11.0/extensions/export/bootstrap-table-export.min.js"></script>
-    <script src="//rawgit.com/hhurz/tableExport.jquery.plugin/master/tableExport.js"></script>
+    <!-- <script src="//cdn.bootcss.com/bootstrap-table/1.11.0/extensions/export/bootstrap-table-export.min.js"></script> -->
+    <!-- <script src="//rawgit.com/hhurz/tableExport.jquery.plugin/master/ "></script> -->
+    <script src="https://cdn.bootcss.com/bootstrap-table/1.11.1/extensions/export/bootstrap-table-export.js"></script>
+    <!-- <script src="//rawgit.com/hhurz/tableExport.jquery.plugin/master/tableExport.js"></script> -->
+    <script src="{% static 'js/tableExport.js' %}"></script>
+
     {% endif %}
 {% endblock %}
