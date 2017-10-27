@@ -1,6 +1,9 @@
 <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
     <div class="container">
         <div class="navbar-header">
+            <!-- 大标题 -->
+            <a href="{% url 'index' %}" class="navbar-brand navbar-left">SAST Homework</a>
+            <!-- 大标题 --> 
             <!-- 移动端小展开图标 -->
             <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                 <span class="sr-only">Toggle Navigation</span>
@@ -8,30 +11,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <!--移动端小展开图标 -->
-
-            <!-- 大标题 -->
-            <a href="{% url 'index' %}" class="navbar-brand navbar-left">SAST Homework</a>
-            <!-- 大标题 -->
+            <!--移动端小展开图标 -->        
         </div>
-
-        <!--注册登录 -->
-        <div >
-            {% if user.is_authenticated %}
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" role="button"><span></span> {{ user.username }}</a></li>
-                    <li><a href="#" role="button" data-toggle="modal" class="logout-button"><span
-                            class="glyphicon glyphicon-log-in"></span> 注销</a></li>
-                </ul>
-            {% else %}
-                <ul class="nav navbar-nav navbar-right">
-
-                    <li ><a href="#" role="button" data-toggle="modal" data-target="#login-modal"><span
-                            class="glyphicon glyphicon-log-in"></span> 登录</a></li>
-                </ul>
-            {% endif %}
-        </div>
-        <!--注册登录 -->
 
         <div class="collapse navbar-collapse" id="navbar-collapse" id="navbar">
             <ul class="nav navbar-nav">
@@ -76,14 +57,30 @@
                 <li><a href="{% url 'list_my_submissions' %}">我的提交记录</a></li>
                 {% endif %}
             </ul>
+            <!--注册登录 -->
+        
+            {% if user.is_authenticated %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" role="button"><span></span> {{ user.username }}</a></li>
+                    <li><a href="#" role="button" data-toggle="modal" class="logout-button"><span
+                            class="glyphicon glyphicon-log-in"></span> 注销</a></li>
+                </ul>
+            {% else %}
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li ><a href="#" role="button" data-toggle="modal" data-target="#login-modal"><span
+                            class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+                </ul>
+            {% endif %}
+        
+        <!--注册登录 -->
         </div>
     </div>
 </nav>
 
 <!-- 登陆模块 -->
 <!-- BEGIN # MODAL LOGIN -->
-<div class="modal fade" id="login-modal" tabindex="-1" role="dial aria-labelledby            ="
-     myModalLabel" aria-hidden="true" style="display: none;">
+<div class="modal fade" id="login-modal" tabindex="-1" role="dial" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;" data-backdrop="false">
 <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header" align="center">
