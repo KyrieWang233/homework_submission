@@ -52,18 +52,25 @@ def get_homework_list(request, courser_name_en):
 
 
 def homework_detail(request, homework_id):
-    homework = Homework.objects.get(pk=homework_id)
-    return render(request, 'homework_detail.html', context={'homework': homework, })
+    if request.user.is_superuser:
+        homework = Homework.objects.get(pk=homework_id)
+        return render(request, 'homework_detail.html', context={'homework': homework, })
+    else:
+        return HttpResponseNotFound('<h1>Page not found</h1>')
 
 def edit_homework(request, homework_id):
-    homework = Homework.objects.get(pk=homework_id)
-    if request.method == 'POST':
-        homework.name=request.POST['name']
-        homework.content=request.POST['content']
-        homework.save()
-        return redirect(reverse('homework_detail',args=(homework.pk,)))
+    if request.user.is_superuser:
+        homework = Homework.objects.get(pk=homework_id)
+        if request.method == 'POST':
+            homework.name=request.POST['name']
+            homework.content=request.POST['content']
+            homework.save()
+            return redirect(reverse('homework_detail',args=(homework.pk,)))
+        else:
+            return render(request,'edit_homework.html', context={'homework':homework,})
     else:
-        return render(request,'edit_homework.html', context={'homework':homework,})
+        return HttpResponseNotFound('<h1>Page not found</h1>')
+
 
 
 @permission_required('submission_system.add_homework')
@@ -112,7 +119,7 @@ def submission_detail(request, submission_id):
         comment.save()
     comments = submission.comment_set.all()
     return render(request, 'submission_detail.html',
-                  context={'submission': submission,'comments': comments})
+                    context={'submission': submission,'comments': comments})
 
 
 def get_my_submissions(request):
